@@ -6,15 +6,22 @@ const HardSourceWebpackPlugin = require("hard-source-webpack-plugin");
 // const fs = require('fs');
 // const path = require('path');
 // const flexible = fs.readFileSync(path.join(__dirname, '../public/lib/flexible.js')).toString();
-const HOST = "10.8.11.37"
+let arr = [];
+/**
+ * 自动获取IP
+ */
+for (let key in os.networkInterfaces()) {
+    os.networkInterfaces()[key].forEach(item => {
+        if (item.family === "IPv4") {
+            arr.push(item.address);
+        }
+    });
+}
+console.log(arr);
+const HOST = arr[0];
 module.exports = {
     entry: {
-        app: [
-            "babel-polyfill",
-            "./src/index.js",
-            "./src/pages/home/index.js",
-            "./src/pages/home/categorys/index.js"
-        ],
+        app: ["babel-polyfill", "./src/index.js", "./src/pages/home/index.js", "./src/pages/home/categorys/index.js"],
         vendor: ["react", "better-scroll", "react-redux", "react-lazyload"]
     },
     output: {
@@ -52,10 +59,7 @@ module.exports = {
                                     presets: [
                                         "@babel/preset-react",
                                         //tree shaking 按需加载babel-polifill
-                                        [
-                                            "@babel/preset-env",
-                                            { modules: false, useBuiltIns: "false", corejs: 2 }
-                                        ]
+                                        ["@babel/preset-env", { modules: false, useBuiltIns: "false", corejs: 2 }]
                                     ],
                                     plugins: [
                                         //支持import 懒加载
@@ -109,7 +113,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: "./public/index.html",
+            template: "./public/index.html"
             // flexible: `<script type="text/javascript">${flexible}</script>`,
         }),
         new webpack.HotModuleReplacementPlugin(),

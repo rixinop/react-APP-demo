@@ -10,7 +10,7 @@ const PreloadWebpackPlugin = require('preload-webpack-plugin');
 const os = require('os');
 module.exports = {
     entry: {
-        app: ['babel-polyfill', './src/index.js', './src/pages/home/index.jsx'],
+        app: ['babel-polyfill', './src/index.js', './src/pages/home/index.js'],
         vendor: ['react']
     },
     output: {
