@@ -53,7 +53,7 @@
   "dependencies": {
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "antd-mobile": "^2.2.13",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "better-scroll": "^1.15.2",
     "hard-source-webpack-plugin": "^0.13.1",
     "mockjs": "^1.0.1-beta3",
