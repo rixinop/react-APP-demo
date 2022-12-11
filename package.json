@@ -75,7 +75,7 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
     "nodemon": "^1.18.9",
-    "express": "^4.16.2"
+    "express": "^4.17.3"
   },
   "theme": {
     "brand-primary": "blue",
